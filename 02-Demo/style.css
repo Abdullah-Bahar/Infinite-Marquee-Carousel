@@ -1,0 +1,146 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.wrapper {
+	width: 90%;
+	max-width: 1536px;
+	border: 1px solid black;
+	margin-inline: auto;
+	position: relative;
+	height: 100px;
+	margin-block-start: 5rem;
+	overflow: hidden;
+	/* Kenarlar için fade efekti - (yavaşça kaybolma) */
+	mask-image: linear-gradient(to right,
+			rgba(0, 0, 0, 0),
+			rgba(0, 0, 0, 1) 20%,
+			rgba(0, 0, 0, 1) 80%,
+			rgba(0, 0, 0, 0));
+}
+
+@keyframes scrollLeft {
+	/* Animasyonların başlangıç değeri zaten istenilen yerde */
+
+	to {
+		left: -200px;
+
+		/* 
+			NOT: Burada right: 100% yazılsa da çalışmaz.
+				Neden?
+				- CSS’de position: absolute olan bir elementin konumu left ve right değerleri ile kontrol edilebilir.
+				- Ancak animasyon içinde, left veya right yalnızca birini değiştirebilir.
+				- Eğer left animasyonu uygulanıyorsa tarayıcı, sağ kenarı belirleyen right değerini yok sayar.
+				- Benzer şekilde, right animasyonu kullanırsan left değeri yok sayılır.
+				- Özetle: Bir elementin hem left hem right değerini animasyonla aynı anda değiştirmek **CSS kuralları gereği mümkün değildir**.
+				- Bu yüzden soldan sola kayan animasyonda sadece left değerini kullanıyoruz.
+		*/
+		/* right: 100%; */
+	}
+}
+
+.item {
+	width: 200px;
+	height: 100px;
+	border-radius: 6px;
+	position: absolute;
+
+	/* Responsive tasarım için duyarlı değildi */
+	/* left: 100%; */
+
+	/* max(v1, v2) -> Hangisi daha büyükse onu alır */
+	/* Böylece kutuların arası bozulmadan sayfa boyutu ne olursa olsun çalışıyor */
+	left: max(calc(200px * 8), 100%);
+
+	/* Animation Values */
+	animation-name: scrollLeft;
+	animation-duration: 30s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+/*
+	1) Elemanla arası boşluk nasıl sağlanıyor ?
+		- Animasyon tüm elemanlara aynı anda başladığında hepsi üst üste biner.
+		- Bu yüzden **her elemana farklı bir animation-delay** veriyoruz.
+		- Delay sayesinde elemanlar birbirini takip edecek şekilde sıralanıyor ve kesintisiz, 
+	   eşit aralıklı bir kaydırma oluşuyor.
+
+	2) Negatif Aniamsyon Değeri
+		- Negatif delay, animasyonu zaten başlamış gibi göstermek için kullanılır.
+		- Örneğin: -5s delay 	-> 	animasyon 5 saniye ileride başlamış gibi görünür.
+		- Bu teknik, tüm elemanları baştan farklı konumda başlatmak için kullanılır.
+
+	3) Hesaplama Mantığı
+		- scrollLeft animasyon süresi 	= Animasyon süresi
+		- Toplam eleman sayısı 			= n
+		- Eleman sırası 				= index
+		- Tersten Elaman Sırası			= index reverse
+		- -1							= negatife dönüştür
+
+	I.	(animasyon süresi / n) * (n - index) * negatife dönüştür
+		- Sayfa açıldığını animasyon konteynırı boş gözükmez. 
+		- konteyner dolu başlar.
+		- çünkü negatif değer verildiği için konumlandırmasını zaten yapıyor
+			
+			> Kısaca : Sayfa açılır açılmaz container dolu durur. 
+
+	II. (animasyon süresi / n) * (n - index reverse)
+		- Her eleman belirli bir süre sonra animasyona girer.
+		- Bu nedenle sayfa açıldığında konteyner geçici olarak boş gibi görünür ve 
+		elemanlar yavaş yavaş kaymaya başlar.
+
+			> Kısaca : Sayfa açıldığında bellir bir süre sonra container dolae
+*/
+
+.item1 {
+	background-color: #48121a;
+	/* animation-delay: calc(30s / 8 *  (8 - 8)); */
+	animation-delay: calc(30s / 8 * (8 - 1) * -1);
+}
+
+.item2 {
+	background-color: #702f2c;
+	/* animation-delay: calc(30s / 8 *  (8 - 7)); */
+	animation-delay: calc(30s / 8 * (8 - 2) * -1);
+}
+
+.item3 {
+	background-color: #a45539;
+	/* animation-delay: calc(30s / 8 *  (8 - 6)); */
+	animation-delay: calc(30s / 8 * (8 - 3) * -1);
+}
+
+.item4 {
+	background-color: #db8842;
+	/* animation-delay: calc(30s / 8 *  (8 - 5)); */
+	animation-delay: calc(30s / 8 * (8 - 4) * -1);
+}
+
+.item5 {
+	background-color: #e7c441;
+	/* animation-delay: calc(30s / 8 *  (8 - 4)); */
+	animation-delay: calc(30s / 8 * (8 - 5) * -1);
+}
+
+.item6 {
+	background-color: #ffcc1a;
+	/* animation-delay: calc(30s / 8 *  (8 - 3)); */
+	animation-delay: calc(30s / 8 * (8 - 6) * -1);
+}
+
+.item7 {
+	background-color: #fbff58;
+	/* animation-delay: calc(30s / 8 *  (8 - 2)); */
+	animation-delay: calc(30s / 8 * (8 - 7) * -1);
+}
+
+.item8 {
+	background-color: #271900;
+	/* animation-delay: calc(30s / 8 *  (8 - 1)); */
+	animation-delay: calc(30s / 8 * (8 - 8) * -1);
+}
