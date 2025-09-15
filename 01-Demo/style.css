@@ -1,0 +1,71 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #f2f2f2;
+}
+
+@keyframes slide {
+	from {
+		/* Başlangıçta logolar normal pozisyonunda */
+		transform: translateX(0);
+	}
+
+	to {
+		/* Logoların tamamı sola kayacak */
+		transform: translateX(-100%);
+	}
+}
+
+.logos {
+	/* Kayan logolar dışarı taşmasın */
+	overflow: hidden;
+	padding: 60px 0;
+	background: white;
+	/* Kopyalanan öğeler alt satıra geçmesin - Her şey tek satırda olsun */
+	white-space: nowrap;	
+	position: relative;
+}
+
+.logos::after,
+.logos::before {
+	position: absolute;
+	top: 0;
+	width: 250px;
+	height: 100%;
+	content: "";
+	z-index: 2;
+}
+
+.logos::after {
+	left: 0;
+	background: linear-gradient(to left,
+			rgba(255, 255, 255, 0),
+			white);
+}
+
+.logos::before {
+	right: 0;
+	background: linear-gradient(to right,
+			rgba(255, 255, 255, 0),
+			white);
+}
+
+.logos-slide {
+	/* Tek satırda dizmek için */
+	display: inline-block;
+	animation: 30s slide infinite linear;
+}
+
+.logos-slide img {
+	height: 50px;
+	margin: 0 40px;
+}
+
+/* Hover olduğunda slide durur */
+.logos:hover .logos-slide {
+	animation-play-state: paused;
+}
