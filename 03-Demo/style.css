@@ -1,0 +1,104 @@
+:root {
+	--gap: 2rem;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+body {
+	font-family: system-ui, sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	color: #131722;
+	background-color: #f7f8fd;
+	padding: 100px 50px;
+}
+
+h1 {
+	text-align: center;
+	margin-block-end: 2.5rem;
+}
+
+.stock-ticker {
+	font-size: 15px;
+	padding-block: 8px;
+	border-block: 1px solid;
+	overflow: hidden;
+	user-select: none;
+	display: flex;
+	gap: var(--gap);
+}
+
+.stock-ticker ul {
+	display: flex;
+	gap: var(--gap);
+	/* Liste boyutunun küçülmesini engelledik */
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: space-between;
+	/* Container genişliği kadar */
+	min-width: 100%;
+	
+	animation: scroll 20s linear infinite;
+}
+
+/* .stock-ticker:hover ul {
+	animation-play-state: paused;
+} */
+
+@keyframes scroll {
+	to {
+		/* 
+			100%: 
+				- Eleman sadece kendi genişliği kadar sola kayar.
+			    - Bu durumda iki <ul> arasındaki "gap" hesaba katılmaz. 
+			    - Sonuç: İlk <ul> kayıp biterken ikinci <ul> bir anda
+			    dibine yapışır ve animasyon akışı "tak diye atlar".
+		*/
+		/* transform: translateX(-100%); */
+
+		/* 
+			calc(-100% - var(--gap)): 
+				- Eleman kendi genişliği + gap kadar sola kayar.
+			    - Böylece iki <ul> arasındaki boşluk da hesaba katılır.
+			    - Sonuç: Geçiş pürüzsüz ve kesintisiz olur.
+		*/
+		transform: translateX(calc(-100% - var(--gap)));
+	}
+}
+
+.stock-ticker .company,
+.stock-ticker .price {
+	font-weight: bold;
+}
+
+.stock-ticker .price {
+	margin-inline: 4px;
+}
+
+.stock-ticker .plus::before {
+	/* yukarı ok işareti */
+	content: "\2191"; 
+}
+
+.stock-ticker .minus::before {
+	/* Aşağı ok işareti */
+	content: "\2193";
+}
+
+.stock-ticker .plus .change,
+.stock-ticker .plus::before {
+	color: #089981;
+}
+
+.stock-ticker .minus .change,
+.stock-ticker .minus::before {
+	color: #f23645;
+}
