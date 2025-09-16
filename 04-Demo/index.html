@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Owl Carousel marque</title>
+
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+	<link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+	<div class="slider-wrapper">
+		<div class="container">
+			<div class="owl-carousel slider-active">
+				<a class="img-fluid" href="#">
+					<img src="./logos/3m.svg">
+				</a>
+				<a class="img-fluid" href="#">
+					<img src="./logos/barstool-store.svg">
+				</a>
+				<a class="img-fluid" href="#">
+					<img src="./logos/budweiser.svg">
+				</a>
+				<a class="img-fluid" href="#">
+					<img src="./logos/buzzfeed.svg">
+				</a>
+				<a class="img-fluid" href="#">
+					<img src="./logos/forbes.svg">
+				</a>
+				<a class="img-fluid" href="#">
+					<img src="./logos/macys.svg">
+				</a>
+				<a class="img-fluid" href="#">
+					<img src="./logos/menshealth.svg">
+				</a>
+				<a class="img-fluid" href="#">
+					<img src="./logos/mrbeast.svg">
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+	<script>
+		/*
+			
+		*/
+		
+		/*
+		$('.owl-carousel.slider-active').owlCarousel({
+			loop: true, 	// Sonsoz Döngü
+			dots: false, 	// Nokta navigasyonu kapalı
+			nav: false,		// Önceki/sonraki oklar kapalı
+			margin: 30,
+			smartSpeed: 5000,
+			autoplay: true,
+			autoplayTimeout: 5000,
+			autoplayHoverPause: false,
+			mouseDrag: false,
+			touchDrag: false,
+			autoWidth: true, 	// Elemanların genişliği content kadar olur
+			responsiveClass: false,
+			items: 5
+		})
+		*/
+		
+		$(window).on('load', function () {
+			var owl = $('.owl-carousel.slider-active');
+
+			owl.owlCarousel({
+				loop: true,
+				dots: false,
+				nav: false,
+				margin: 10,
+				mouseDrag: false,
+				touchDrag: false,
+				autoWidth: true,
+				items: 5,
+				autoplay: false,
+				smartSpeed: 0,
+				slideTransition: 'linear'
+			});
+
+			// px/sn cinsinden kayan hız
+			var pxPerSecond = 60;
+
+			function animateMarquee() {
+				var $stage = owl.find('.owl-stage');
+				var stageWidth = $stage.width();
+				var itemWidth = $stage.find('.owl-item').first().outerWidth(true);
+
+				var totalWidth = 0;
+				$stage.find('.owl-item').each(function () {
+					totalWidth += $(this).outerWidth(true);
+				});
+
+				// Sürekli translate
+				var currentX = 0;
+
+				function step() {
+					currentX -= pxPerSecond / 60; // 60fps varsayımı
+					if (Math.abs(currentX) >= totalWidth / 2) { // loop için reset
+						currentX = 0;
+					}
+					$stage.css('transform', 'translate3d(' + currentX + 'px, 0, 0)');
+					requestAnimationFrame(step);
+				}
+
+				requestAnimationFrame(step);
+			}
+
+			animateMarquee();
+		});
+
+
+	</script>
+</body>
+
+</html>

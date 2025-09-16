@@ -1,0 +1,35 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.slider-wrapper {
+	padding-block: 2rem;
+}
+
+.container {
+	width: 90%;
+	max-width: 1200px;
+	margin-inline: auto;
+}
+
+.img-fluid {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 5rem;
+	width: auto;
+	padding: 1rem;
+}
+
+.img-fluid img {
+	height: 100%;
+	width: auto;
+	object-fit: contain;
+}
+
+/* "Owl Carousel"i marque gibi infinite slider yapar */
+/* .owl-stage {
+	transition-timing-function: linear !important;
+} */
