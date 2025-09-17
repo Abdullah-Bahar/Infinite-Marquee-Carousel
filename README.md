@@ -32,6 +32,9 @@ Kodlarda değişiklikler yaparak dilediğiniz gibi özelleştirebilirsiniz.
 
 Projede toplam 5 demo vardır.
 
+<br>
+
+
 ## 1. Demo - HTML & CSS
 - HTML ve CSS kullanılmıştır
 - CSS `@keyframes` kullanılarak marquee efekti uygulanmıştır.
@@ -41,8 +44,6 @@ Projede toplam 5 demo vardır.
 - Slide'in başlangıç ve bitiş noktalarına da kaybolma efektleri uygulanmıştır.
 - Responsive tasarım göz önünde bulundurlmuştur.
 - [Canlı Önizleme](https://abdullah-bahar.github.io/Infinite-Marquee-Carousel/01-Demo/)
-
-<br>
 
 ![Proje Demo GIF'i](assets/01-demo.gif)
 
