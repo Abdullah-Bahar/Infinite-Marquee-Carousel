@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Owl Carousel AutoWidth Fix</title>
+
+	<!-- Owl Carousel 2 CSS -->
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="./style.css">
+</head>
+
+<!-- 
+	Owl Carousel 2 :
+		- https://owlcarousel2.github.io/OwlCarousel2/
+		- v2.3.4
+-->
+
+<body>
+	<!-- wrapper sadece margin vermek için kullanıldı -->
+	<div class="slider-wrapper">
+		<!-- container ise slider genişliğini sınırlamak için kullanıldı -->
+		<div class="container">
+			<!-- owl-carousel ise kütüphane çalışmaya başlar -->
+			<div class="owl-carousel slider-active">
+				<!-- Carousel İtem -->
+				<a class="img-fluid" href="#">
+					<img src="../logos/3m.svg">
+				</a>
+				<!-- Carousel İtem -->
+				<a class="img-fluid" href="#">
+					<img src="../logos/barstool-store.svg">
+				</a>
+				<!-- Carousel İtem -->
+				<a class="img-fluid" href="#">
+					<img src="../logos/budweiser.svg">
+				</a>
+				<!-- Carousel İtem -->
+				<a class="img-fluid" href="#">
+					<img src="../logos/buzzfeed.svg">
+				</a>
+				<!-- Carousel İtem -->
+				<a class="img-fluid" href="#">
+					<img src="../logos/forbes.svg">
+				</a>
+				<!-- Carousel İtem -->
+				<a class="img-fluid" href="#">
+					<img src="../logos/macys.svg">
+				</a>
+				<!-- Carousel İtem -->
+				<a class="img-fluid" href="#">
+					<img src="../logos/menshealth.svg">
+				</a>
+				<!-- Carousel İtem -->
+				<a class="img-fluid" href="#">
+					<img src="../logos/mrbeast.svg">
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- JQuery => Owl Carousel 2 için bağımlılık -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<!-- Owl Carousel 2 JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+	<script>
+		/*
+			Açıklamalar :
+
+			1) Sayfa açılır açılmaz animasyon başlıyor :
+				- Artık autoplay yerine manuel requestAnimationFrame ile animasyonu başlattığımız 
+				için slider bekleme yapmadan hemen kaymaya başlıyor.
+			
+			2) Elemanlar arası boşluk eşit :
+				- 'AutoWidth' ile elemanlar arası boşluk eşit.
+
+			3) Eleman boyutları farklı olsa bile hız aynı :
+				- Normal Owl Carousel’de autoWidth ile farklı genişlikli elemanlarda sabit süreli 
+				animasyon hızı farklı gözüküyordu.
+				- Burada pxPerSecond kullanarak her elemanın genişliğine bakmaksızın sabit hız sağlandı
+				- Baş dönmesine son!!!
+		*/
+
+
+		// Sayfa tamamen yüklendiğinde çalışacak
+		$(window).on('load', function () {
+			// OWl Carousel elementini seçtik
+			var owl = $('.owl-carousel.slider-active');
+
+			// OWl Carousel'i başlatıyoruz.
+			owl.owlCarousel({
+				loop: true,
+				dots: false,
+				nav: false,
+				margin: 10,
+				mouseDrag: false,
+				touchDrag: false,
+				autoWidth: true,
+				autoplay: false
+				// Autoplay kapalı, çünkü manuel animasyon yapıyoruz
+			});
+
+			// Kayma hızı : px/sn cinsinden
+			var pxPerSecond = 60;
+
+			// Manuel marquee animasyonu için fonksiyon
+			function animateMarquee() {
+				// Owl Carousel içindeki .owl-stage elementini alıyoruz
+				var $stage = owl.find('.owl-stage');
+
+				// İlk item genişliği (gerektiğinde referans için)
+				var itemWidth = $stage.find('.owl-item').first().outerWidth(true);
+
+				// Tüm itemların toplam genişliğini hesaplıyoruz
+				var totalWidth = 0;
+				$stage.find('.owl-item').each(function () {
+					// outerWidth(true) margin dahil genişliği verir
+					totalWidth += $(this).outerWidth(true);
+				});
+
+				// Animasyonun başlangıç konumu
+				var currentX = 0;
+
+				// Sürekli kayan animasyon için step fonksiyonu
+				function step() {
+					// Her frame’de pxPerSecond / 60 kadar sola kaydır
+					// 60 fps ayarlıyoruz
+					currentX -= pxPerSecond / 60;
+
+					// Loop kontrolü: toplam genişliğin yarısını geçince pozisyonu sıfırla
+					// Böylece kesintisiz marquee elde ediyoruz
+					if (Math.abs(currentX) >= totalWidth / 2) {
+						currentX = 0;
+					}
+
+					// Slider’ı GPU hızlandırmalı translate ile hareket ettiriyoruz
+					$stage.css('transform', 'translate3d(' + currentX + 'px, 0, 0)');
+
+					// Bir sonraki frame için step fonksiyonunu tekrar çağırıyoruz
+					requestAnimationFrame(step);
+				}
+
+				// Animasyonu başlat
+				requestAnimationFrame(step);
+			}
+
+			// Marquee animasyonunu çalıştır
+			animateMarquee();
+		});
+	</script>
+</body>
+
+</html>
