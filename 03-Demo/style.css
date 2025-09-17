@@ -21,11 +21,6 @@ body {
 	padding: 100px 50px;
 }
 
-h1 {
-	text-align: center;
-	margin-block-end: 2.5rem;
-}
-
 .stock-ticker {
 	font-size: 15px;
 	padding-block: 8px;
@@ -49,9 +44,12 @@ h1 {
 	animation: scroll 20s linear infinite;
 }
 
-/* .stock-ticker:hover ul {
+/* Slider hover olduğunda durması için */
+/* 
+.stock-ticker:hover ul {
 	animation-play-state: paused;
-} */
+} 
+*/
 
 @keyframes scroll {
 	to {

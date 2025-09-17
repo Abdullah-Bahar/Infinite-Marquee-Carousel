@@ -8,6 +8,9 @@ body {
 	background: #f2f2f2;
 }
 
+/*
+	Bu animasyon, logos-slide öğesini yatayda sola doğru sürekli kaydırır.
+*/
 @keyframes slide {
 	from {
 		/* Başlangıçta logolar normal pozisyonunda */
@@ -30,6 +33,7 @@ body {
 	position: relative;
 }
 
+/* Kenarlarda fade (kaybolma) efekti oluşturmak için pseudo-element kullanıyoruz */
 .logos::after,
 .logos::before {
 	position: absolute;
@@ -40,6 +44,7 @@ body {
 	z-index: 2;
 }
 
+/* Sağdaki solma efekti (soldan sağa beyazlaşan gradyan) */
 .logos::after {
 	left: 0;
 	background: linear-gradient(to left,
@@ -47,6 +52,7 @@ body {
 			white);
 }
 
+/* Soldaki solma efekti (sağdan sola beyazlaşan gradyan) */
 .logos::before {
 	right: 0;
 	background: linear-gradient(to right,

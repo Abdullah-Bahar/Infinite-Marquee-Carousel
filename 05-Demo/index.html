@@ -5,13 +5,22 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Swipper JS</title>
+
+	<!-- Swiper CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+	<!-- Custom CSS -->
 	<link rel="stylesheet" href="./style.css">
 </head>
+	
+<!-- 
+	Swiper JS :
+		- https://swiperjs.com/
+		- v12.0.1
+-->
 
 <body>
-
 	<div class="container-slider">
+		<!-- 1. Slider -->
 		<!-- Slider main container -->
 		<div class="swiper swiper-1">
 			<!-- Additional required wrapper -->
@@ -90,6 +99,7 @@
 			</div>
 		</div>
 
+		<!-- 2. Slider -->
 		<!-- Slider main container -->
 		<div class="swiper swiper-2">
 			<!-- Additional required wrapper -->
@@ -149,36 +159,37 @@
 		</div>
 	</div>
 
+	<!-- Swiper JS -->
 	<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-	<script src="./app.js"></script>
 
+	<!-- Custom scripts -->
 	<script>
 		// Swiper Genearal
 		var swiperGeneral = {
 			loop: true,				// Sürekli döngü
 			slidesPerView: "auto",	// Slide sayısı otomatik, içeriğe göre 
-			freeMode: true,			// Slide kullanıcı müdehalesi ile durmaz. Hep akışta
+			freeMode: true,			// Kullanıcı müdahalesi olmasa bile slider sürekli akışta
 
 		};
 
 		// Swiper 1
 		var swiper1 = new Swiper('.swiper.swiper-1', {
-			...swiperGeneral,
+			...swiperGeneral,		// Genel ayarlar
 			spaceBetween: 30, 		// Slide'lar arası boşluk
-			speed: 6500,				// Kayma hızı
+			speed: 6500,			// Kayma hızı
 			autoplay: {				// Gecikme yok
-				delay: 0,
+				delay: 0,			// Başlangıç gecikmesi yok
 			}
 		});
 
 		// Swiper 2
 		var swiper2 = new Swiper('.swiper.swiper-2', {
-			...swiperGeneral,
+			...swiperGeneral,		// Genel ayarlar
 			spaceBetween: 50, 		// Slide'lar arası boşluk
 			speed: 4000,			// Kayma hızı
 			autoplay: {				// Gecikme yok
-				delay: 0,
-				reverseDirection: true
+				delay: 0,				// Başlangıç gecikmesi yok
+				reverseDirection: true	// Kayma yönü ters (sağdan sola)
 			}
 		});
 	</script>

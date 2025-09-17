@@ -72,16 +72,10 @@ img {
 .swiper-slide img {
 	border-radius: inherit;
 	filter: grayscale(1);
-
-	/* Resimler ve çerçevesi kare olduğu için taşma falan olmuyor */
-	/* object-fit: cover;
-	object-position: 50%; */
 }
 
 .swiper-2 .swiper-slide img {
 	border-radius: 50%;
-	object-fit: contain;
-	object-position: 50%;
 }
 
 .overlay {
