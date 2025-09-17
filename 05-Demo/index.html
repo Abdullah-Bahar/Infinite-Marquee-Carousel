@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Swipper JS</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+	<link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+	<div class="container-slider">
+		<!-- Slider main container -->
+		<div class="swiper swiper-1">
+			<!-- Additional required wrapper -->
+			<div class="swiper-wrapper">
+				<!-- Slides -->
+				<!-- Slider Item -->
+				<div class="swiper-slide">
+					<img src="img/1.jpg" alt="profile image">
+					<div class="overlay">
+						<p>Splinter</p>
+					</div>
+				</div>
+				<!-- Slider Item -->
+				<div class="swiper-slide">
+					<img src="img/2.jpg" alt="profile image">
+					<div class="overlay">
+						<p>Astrid</p>
+					</div>
+				</div>
+				<!-- Slider Item -->
+				<div class="swiper-slide">
+					<img src="img/3.jpg" alt="profile image">
+					<div class="overlay">
+						<p>Leonarda</p>
+					</div>
+				</div>
+				<!-- Slider Item -->
+				<div class="swiper-slide">
+					<img src="img/4.jpg" alt="profile image">
+					<div class="overlay">
+						<p>Michelangelo </p>
+					</div>
+				</div>
+				<!-- Slider Item -->
+				<div class="swiper-slide">
+					<img src="img/5.jpg" alt="profile image">
+					<div class="overlay">
+						<p>Donatello</p>
+					</div>
+				</div>
+				<!-- Slider Item -->
+				<div class="swiper-slide">
+					<img src="img/6.jpg" alt="profile image">
+					<div class="overlay">
+						<p>Raphael</p>
+					</div>
+				</div>
+				<!-- Slider Item -->
+				<div class="swiper-slide">
+					<img src="img/7.jpg" alt="profile image">
+					<div class="overlay">
+						<p>Ragna</p>
+					</div>
+				</div>
+				<!-- Slider Item -->
+				<div class="swiper-slide">
+					<img src="img/8.jpg" alt="profile image">
+					<div class="overlay">
+						<p>Thyra</p>
+					</div>
+				</div>
+				<!-- Slider Item -->
+				<div class="swiper-slide">
+					<img src="img/9.jpg" alt="profile image">
+					<div class="overlay">
+						<p>Winston</p>
+					</div>
+				</div>
+				<!-- Slider Item -->
+				<div class="swiper-slide">
+					<img src="img/10.jpg" alt="profile image">
+					<div class="overlay">
+						<p>Freya</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Slider main container -->
+		<div class="swiper swiper-2">
+			<!-- Additional required wrapper -->
+			<div class="swiper-wrapper">
+				<!-- Slides -->
+				<!-- Slider Item -->
+				<div class="swiper-slide ">
+					<img src="img/1.jpg" alt="profile image">
+					<div class="overlay"></div>
+				</div>
+				<!-- Slider Item -->
+				<div class="swiper-slide">
+					<img src="img/2.jpg" alt="profile image">
+					<div class="overlay"></div>
+				</div>
+				<!-- Slider Item -->
+				<div class="swiper-slide">
+					<img src="img/3.jpg" alt="profile image">
+					<div class="overlay"></div>
+				</div>
+				<!-- Slider Item -->
+				<div class="swiper-slide">
+					<img src="img/4.jpg" alt="profile image">
+					<div class="overlay"></div>
+				</div>
+				<!-- Slider Item -->
+				<div class="swiper-slide">
+					<img src="img/5.jpg" alt="profile image">
+					<div class="overlay"></div>
+				</div>
+				<!-- Slider Item -->
+				<div class="swiper-slide">
+					<img src="img/6.jpg" alt="profile image">
+					<div class="overlay"></div>
+				</div>
+				<!-- Slider Item -->
+				<div class="swiper-slide">
+					<img src="img/7.jpg" alt="profile image">
+					<div class="overlay"></div>
+				</div>
+				<!-- Slider Item -->
+				<div class="swiper-slide">
+					<img src="img/8.jpg" alt="profile image">
+					<div class="overlay"></div>
+				</div>
+				<!-- Slider Item -->
+				<div class="swiper-slide">
+					<img src="img/9.jpg" alt="profile image">
+					<div class="overlay"></div>
+				</div>
+				<!-- Slider Item -->
+				<div class="swiper-slide">
+					<img src="img/10.jpg" alt="profile image">
+					<div class="overlay"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+	<script src="./app.js"></script>
+
+	<script>
+		// Swiper Genearal
+		var swiperGeneral = {
+			loop: true,				// Sürekli döngü
+			slidesPerView: "auto",	// Slide sayısı otomatik, içeriğe göre 
+			freeMode: true,			// Slide kullanıcı müdehalesi ile durmaz. Hep akışta
+
+		};
+
+		// Swiper 1
+		var swiper1 = new Swiper('.swiper.swiper-1', {
+			...swiperGeneral,
+			spaceBetween: 30, 		// Slide'lar arası boşluk
+			speed: 6500,				// Kayma hızı
+			autoplay: {				// Gecikme yok
+				delay: 0,
+			}
+		});
+
+		// Swiper 2
+		var swiper2 = new Swiper('.swiper.swiper-2', {
+			...swiperGeneral,
+			spaceBetween: 50, 		// Slide'lar arası boşluk
+			speed: 4000,			// Kayma hızı
+			autoplay: {				// Gecikme yok
+				delay: 0,
+				reverseDirection: true
+			}
+		});
+	</script>
+</body>
+
+</html>
