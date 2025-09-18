@@ -1,8 +1,9 @@
 # :rocket: Infinite Marquee Carousel
 
+<!-- İçindekiler -->
 ## :book: İçindekiler
 - [Proje Hakkında](#bulb-proje-hakkında)
-- [Carousel Örnekleri](#carousel-örnekleri)
+- [Carousel Örnekleri](#carousel_horse-carousel-örnekleri)
 	1. [Demo - HTML & CSS](#1-demo---html--css) - (Container Bazlı, Kopyala-Yapıştır ile)
 	2. [Demo - HTML & CSS](#2-demo---html--css) - (İtem Bazlı, Kopyala-Yapıştır Olmadan)
 	3. [Demo - HTML & CSS & Flexbox](#3-demo---html--css--flexbox)
@@ -11,8 +12,10 @@
 		- [Owl Carousel - AutoWidth Problem](#2-owl-carousel---autowidth-problem)
 		- [Owl Carousel - AutoWidth Fix](#3-owl-carousel---autowidth-fix)
 	5. [Demo - Swiper JS](#5-demo---swiper-js)
-- [Katılım ve Katkıda Bulunma](#katılım-ve-katkıda-bulunma)
+- [Katılım ve Katkıda Bulunma](#handshake-katılım-ve-katkıda-bulunma)
 
+
+<!-- Proje Hakkında -->
 ## :bulb: Proje Hakkında
 
 **Infinite Marquee Efect (Kayan Efekt)**, güzel bir görünüm elde etmek için 
@@ -24,6 +27,7 @@ Bu efekti yapabilmek adına HTML etiketi olan `<marquee>` kullanılmaktaydı. An
 
 Buradaki amacımız bu efekti yapabilmek adına farklı çözümler sunmaktır. Gerek saf HTML ve CSS olsun gerek farklı kütüphanelerin kullanımı olsun bu projede pek çok örnek yapılarak bir carousel koleksiyonu oluşturulmuştur.
 
+<!-- Carousel Örnekleri -->
 ## :carousel_horse: Carousel Örnekleri
 
 Proje açıklamaları hem aşağıda verilmiş, kod açıklamaları ise yorum satırlarıyle her demo içerisinde yapılmıştır.
@@ -32,9 +36,7 @@ Kodlarda değişiklikler yaparak dilediğiniz gibi özelleştirebilirsiniz.
 
 Projede toplam 5 demo vardır.
 
-<br>
-
-
+<!-- 1. Demo - HTML & CSS -->
 ## 1. Demo - HTML & CSS
 - HTML ve CSS kullanılmıştır
 - CSS `@keyframes` kullanılarak marquee efekti uygulanmıştır.
@@ -45,8 +47,11 @@ Projede toplam 5 demo vardır.
 - Responsive tasarım göz önünde bulundurlmuştur.
 - [Canlı Önizleme](https://abdullah-bahar.github.io/Infinite-Marquee-Carousel/01-Demo/)
 
+<br>
+
 ![Proje Demo GIF'i](assets/01-demo.gif)
 
+<!-- 2. Demo - HTML & CSS -->
 ## 2. Demo - HTML & CSS
 - HTML ve CSS kullanılmıştır.
 - CSS `@keyframes` kullanılarak marquee efekti uygulanmıştır.
@@ -62,6 +67,7 @@ Projede toplam 5 demo vardır.
 
 ![Proje Demo GIF'i](assets/02-demo.gif)
 
+<!-- 3. Demo - HTML & CSS & Flexbox -->
 ## 3. Demo - HTML & CSS & Flexbox
 - HTML, CSS ve Flexbox kullanılmıştır.
 - CSS `@keyframes` kullanılarak marquee efekti uygulanmıştır.
@@ -74,6 +80,8 @@ Projede toplam 5 demo vardır.
 
 ![Proje Demo GIF'i](assets/03-demo.gif)
 
+
+<!-- 4. Demo - Owl Carousel 2 -->
 ## 4. Demo - Owl Carousel 2
 - HTML, CSS ve Owl Carousel kütüphanesi kullanılmıştır.
 - Owl Carousel Sürüm : `v2.3.4`
@@ -82,6 +90,7 @@ Projede toplam 5 demo vardır.
 - Bu demo karşılaşılan problemlere yaklaşımı göstermek adına 3 adet demo içermektedir.
 - Daha fazla bilgi için [Owl Carousel](https://owlcarousel2.github.io/OwlCarousel2/)'ın sitesini ziyaret edebeilirsiniz.
 
+<!-- 1. Owl Carousel - Basic Infinite -->
 ### 1. Owl Carousel - Basic Infinite
 - Owl Carousel başlatıcı için `responsive` ayarları yapıldı.
 - Owl Carousel'in kendi CSS ayarlarına müdahele edilerek marquee efekti uygulandı.
@@ -96,11 +105,11 @@ Projede toplam 5 demo vardır.
 	- Carousel için eklenen elemanların boyutu aynı olmadığı için elemanlar arası boşluk eşit gözükmüyor.
 - [Canlı Önizleme](https://abdullah-bahar.github.io/Infinite-Marquee-Carousel/04-Demo/01-Basic-Infinite/)
 
-
 <br>
 
 ![Proje Demo GIF'i](assets/04-demo-01.gif)
 
+<!-- 2. Owl Carousel - AutoWidth Problem -->
 ### 2. Owl Carousel - AutoWidth Problem
 - Owl Carousel başlatıcısı için `autoWidth` değeri uygulanarak farklı genişliğe sahip elemanlar olsa da aralarındaki boşluk eşit dağılmıştır.
 - `autoWidth` değeri kullanıldığı için `responsive` değerleri otomatik olarak ayarlandı. `responsive` ayarı eklenmesine gerek kalmadı.
@@ -117,6 +126,7 @@ Projede toplam 5 demo vardır.
 
 ![Proje Demo GIF'i](assets/04-demo-02.gif)
 
+<!-- 3. Owl Carousel - AutoWidth Fix -->
 ### 3. Owl Carousel - AutoWidth Fix
 - Yukarıdaki yaşanan problemlere çözüm adına Owl Carousel kütüphanesini JS ile müdahle edilmiştir.
 - Elemanlar için dönme hızı için verilen `autoplayTimeout` static değeri kaldırıldı. Onun yerine px/sn şeklinde hesaplama yapan dinamik hız ayarlaması eklenerek yukarıda yaşanan hızlanıp yavaşlama sorunu giderilmiştir.
@@ -127,6 +137,7 @@ Projede toplam 5 demo vardır.
 
 ![Proje Demo GIF'i](assets/04-demo-03.gif)
 
+<!-- 5. Demo - Swiper JS -->
 ## 5. Demo - Swiper JS
 - HTML, CSS ve Swiper JS kütüphanesi kullanılmıştır.
 - Swiper JS Sürüm : `v12.0.1`
@@ -141,6 +152,7 @@ Projede toplam 5 demo vardır.
 
 ![Proje Demo GIF'i](assets/05-demo.gif)
 
+<!-- Katılım ve Katkıda Bulunma -->
 ## :handshake: Katılım ve Katkıda Bulunma
 
 Proje kapsamında yapılan yazım hataları, kodla ilgili sorun ve hataları, yeni demo fikirleri, efekt önerileri veya farklı kütüphane çözümleri varsa öneri de bulunmaktan çekinmeyin.
